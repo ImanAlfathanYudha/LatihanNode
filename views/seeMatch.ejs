@@ -1,0 +1,48 @@
+<% include partials/header.ejs %>
+    <div class="table-wrapper">
+    <table class="table table-hovered">
+    <thead class="thead-dark">
+    <tr>
+
+    <th>Team: <%= league.name %></th>
+    </tr>
+    
+    </thead>
+    </table>
+        <% if (matches.length > 0) {%>
+            <table class="table table-hovered">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">ID</th>                       
+                        <th scope="col">Team 1</th>
+                        <th scope="col">Team 2</th>
+                        <th scope="col">Match Time</th>
+                        <th scope="col">Stadion</th>
+                        <th scope="col">Match Status</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% matches.forEach((match, index) => { %>
+                        <tr>
+                            <th scope="row"><%= index+1 %></th>                            
+                            <td><%= match.team1 %> </td>
+                            <td><%= match.team2 %></td>
+                            <td><%= match.match_time.getDate() %>-<%= match.match_time.getMonth() %>-<%= match.match_time.getFullYear() %></td>
+                            <td><%= match.stadion %></td>
+                            <td><%= match.match_status%></td>
+                            <td>                                                                
+                                <a href="" target="_blank" rel="noopener" class="btn btn-sm btn-success">Edit</a>
+                                <a href="" class="btn btn-sm btn-danger">Delete</a>
+                            </td>
+                        </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+        <% } else { %>
+            <p class="text-center"><%= league.name %> doens't have matches.</p>
+        <% } %>
+    </div>
+</div>
+</body>
+</html>

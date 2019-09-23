@@ -1,0 +1,37 @@
+<% include partials/header.ejs %>
+    <div class="table-wrapper">
+        <% if (leagues.length > 0) {%>
+            <table class="table table-hovered">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">League Name</th>
+                        <th scope="col">Year Founded</th>
+                        <th scope="col">Number of Team</th>                        
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% leagues.forEach((league, index) => { %>
+                        <tr>
+                            <th scope="row"><%= league.id %></th>                            
+                            <td><%= league.name %></td>
+                            <td><%= league.year_founded %></td>                            
+                            <td><%= league.number_of_team %></td>
+                            
+                            <td>
+                                <a href="/league/match/<%= league.id %>" target="_blank" rel="noopener" class="btn btn-sm btn-success">Team Match List</a>
+                                <a href="/league/addMatch/<%= league.id %>"  rel="noopener" class="btn btn-sm btn-success">Add Match</a>
+                                <a href="/delete/<%= league.id %>" class="btn btn-sm btn-danger">Delete</a>
+                            </td>
+                        </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+        <% } else { %>
+            <p class="text-center">No leagues found. Go to add leagues.</p>
+        <% } %>
+    </div>
+</div>
+</body>
+</html>

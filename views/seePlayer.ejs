@@ -1,0 +1,42 @@
+<% include partials/header.ejs %>
+    <div class="table-wrapper">
+    <table class="table table-hovered">
+    <thead class="thead-dark">
+    <tr>
+
+    <th>Team: <%= team.name %></th>
+    </tr>
+    
+    </thead>
+    </table>
+        <% if (players.length > 0) {%>
+            <table class="table table-hovered">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">ID</th>                       
+                        <th scope="col">Name</th>
+                        <th scope="col">Position</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% players.forEach((player, index) => { %>
+                        <tr>
+                            <th scope="row"><%= index+1 %></th>                            
+                            <td><%= player.first_name %> <%= player.last_name %></td>                            
+                            <td><%= player.position %></td>    
+                            <td>                                                                
+                                <a href="" target="_blank" rel="noopener" class="btn btn-sm btn-success">Edit</a>
+                                <a href="" class="btn btn-sm btn-danger">Delete</a>
+                            </td>
+                        </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+        <% } else { %>
+            <p class="text-center"><%= team.name %> doens't have players.</p>
+        <% } %>
+    </div>
+</div>
+</body>
+</html>
