@@ -1,0 +1,37 @@
+<% include partials/headerTeam.ejs %>
+    <div class="container">
+        <% if (message != '') { %>
+            <p class="text-center text-danger"><%= message %></p>
+        <% } %>
+        <form class="add-player-form" action="" method="post" enctype="multipart/form-data">
+            <div class="form-row">
+                <table class="table table-hovered">
+                    <thead class="thead-dark">
+                    <tr>
+                        <th>League: <%= league.name %></th>
+                    </tr>    
+                    </thead>
+                </table>
+            </div>
+            <div class="form-row">                
+                <div class="form-group col-md-6">
+                    <select id="team1" name="team1" class="form-control" required> 
+                    <% teams.forEach((team, index) => { %>                   
+                        <option value="<%= team.id %>"><%= team.name %></option>                  
+                    <% }) %>    
+                    </select>
+                </div>
+                <div class="form-group col-md-6">
+                    <select id="team2" name="team2" class="form-control" required> 
+                    <% teams.forEach((team, index) => { %>                   
+                        <option value="<%= team.id %>"><%= team.name %></option>                  
+                    <% }) %>    
+                    </select>
+                </div> 
+            </div>
+            <button type="submit" class="btn btn-primary float-right">Add Player to Team</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>

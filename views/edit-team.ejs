@@ -1,0 +1,26 @@
+<% include partials/headerTeam.ejs %>
+<div class="container">
+    <% if (message) { %>
+        <p class="text-center text-danger"><%= message %></p>
+    <% } %>
+
+    <% if (team) { %>
+        <form class="add-player-form" action="" method="post" enctype="multipart/form-data">
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label for="first-name">Team Name</label>
+                    <input type="text" class="form-control" name="team_name" id="team_name" value="<%= team.name %>" required>
+                </div>                            
+            </div>
+            <div class="form-row">                
+            <button type="submit" class="btn btn-success float-right">Update Team Name</button>
+            </div>
+            
+        </form>
+    <% } else { %>
+        <p class="text-center">Team Not Found. Go <a href="">here</a> to add teams.</p>
+    <% } %>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<% include partials/headerTeam.ejs %>
+    <div class="container">
+        <% if (message != '') { %>
+            <p class="text-center text-danger"><%= message %></p>
+        <% } %>
+        <form class="add-player-form" action="" method="post" enctype="multipart/form-data">
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <input type="text" class="form-control" name="team_name" id="team_name" placeholder="Team Name" required>
+                </div>                
+            </div>
+            <div class="form-row">
+            <button type="submit" class="btn btn-primary float-right">Add Team</button>
+            </div>
+            
+        </form>
+    </div>
+</div>
+</body>
+</html>
